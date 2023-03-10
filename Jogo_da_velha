@@ -1,0 +1,68 @@
+//
+// Source code recreated from a .class file by IntelliJ IDEA
+// (powered by FernFlower decompiler)
+//
+
+package jogo_velha;
+
+public class Jogovelha_test {
+    public Jogovelha_test() {
+    }
+
+    public static void main(String[] args) {
+        Computador computador = new Computador();
+        ComputadorA computadorA = new ComputadorA();
+        ComputadorB computadorB = new ComputadorB();
+        ComputadorC computadorC = new ComputadorC();
+        Tabuleiro tab = new Tabuleiro();
+        Jogador jogador = new Jogador();
+        Tabuleiro.menu();
+
+        while(true) {
+            jogador.escolher_nivel(tab);
+            if (tab.nivel == 1 || tab.nivel == 2 || tab.nivel == 3) {
+                while(true) {
+                    jogador.x_ou_o(tab);
+                    if (tab.palavra.equals("x") || tab.palavra.equals("o") || tab.palavra.equals("X") || tab.palavra.equals("O")) {
+                        computador.x_ou_o(tab);
+
+                        while(true) {
+                            jogador.jogar(tab);
+                            if (tab.j_ganhou()) {
+                                tab.grafico();
+                                break;
+                            }
+
+                            if (tab.nivel == 1) {
+                                computadorA.jogar(tab);
+                            } else if (tab.nivel == 2) {
+                                computadorB.jogar(tab);
+                            } else if (tab.nivel == 3) {
+                                computadorC.jogar(tab);
+                            }
+
+                            if (tab.c_ganhou()) {
+                                tab.grafico();
+                                break;
+                            }
+
+                            if (tab.empatou()) {
+                                tab.grafico();
+                                break;
+                            }
+
+                            tab.grafico();
+                            tab.sua_vez();
+                        }
+
+                        return;
+                    }
+
+                    System.out.println("\t\t\t\tVocê deve escolher a letra x ou a letra o !!!Tente Novamente!!!");
+                }
+            }
+
+            System.out.println("\t\t\t\tVoce possui apenas tês níveis para escolher!!! Tente Novamente!!!");
+        }
+    }
+}
