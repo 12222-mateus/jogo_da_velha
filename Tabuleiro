@@ -1,0 +1,124 @@
+//
+// Source code recreated from a .class file by IntelliJ IDEA
+// (powered by FernFlower decompiler)
+//
+
+package jogo_velha;
+
+public class Tabuleiro {
+    public int linha;
+    public int coluna;
+    public int nivel;
+    public String lance;
+    public String palavra;
+    public String[][] arrInt = new String[][]{{"", "", ""}, {"", "", ""}, {"", "", ""}};
+    public boolean para_programa = false;
+    int contador;
+
+    public Tabuleiro() {
+    }
+
+    public void sua_vez() {
+        System.out.println("\t\t\t\tSua vez!!!");
+    }
+
+    public static void menu() {
+        System.out.println("\t\t\t\t-=-=-=-=-=-=-=-=-=-=-=-=-=");
+        System.out.println("\t\t\t\t-==-=-=JOGO DA VELHA-=-=-=");
+        System.out.println("\t\t\t\t-=-=-=-=-=-=-=-=-=-=-=-=-=");
+    }
+
+    public String[][] grafico() {
+        for(int n = 0; n < 3; ++n) {
+            System.out.print("\t\t\t\t");
+
+            for(int g = 0; g < 3; ++g) {
+                System.out.print("[ " + this.arrInt[n][g] + " ]");
+            }
+
+            System.out.println();
+        }
+
+        return this.arrInt;
+    }
+
+    public boolean c_ganhou() {
+        if (this.arrInt[0][0].equals(this.lance) && this.arrInt[1][1].equals(this.lance) && this.arrInt[2][2].equals(this.lance)) {
+            this.para_programa = true;
+            System.out.println("\t\t\t\tVocê perdeu!!!");
+        } else if (this.arrInt[0][0].equals(this.lance) && this.arrInt[1][0].equals(this.lance) && this.arrInt[2][0].equals(this.lance)) {
+            this.para_programa = true;
+            System.out.println("\t\t\t\tVocê perdeu!!!");
+        } else if (this.arrInt[0][0].equals(this.lance) && this.arrInt[0][1].equals(this.lance) && this.arrInt[0][2].equals(this.lance)) {
+            this.para_programa = true;
+            System.out.println("\t\t\t\tVocê perdeu!!!");
+        } else if (this.arrInt[0][2].equals(this.lance) && this.arrInt[1][2].equals(this.lance) && this.arrInt[2][2].equals(this.lance)) {
+            this.para_programa = true;
+            System.out.println("\t\t\t\tVocê perdeu!!!");
+        } else if (this.arrInt[2][0].equals(this.lance) && this.arrInt[2][1].equals(this.lance) && this.arrInt[2][2].equals(this.lance)) {
+            this.para_programa = true;
+            System.out.println("\t\t\t\tVocê perdeu!!!");
+        } else if (this.arrInt[0][1].equals(this.lance) && this.arrInt[1][1].equals(this.lance) && this.arrInt[2][1].equals(this.lance)) {
+            this.para_programa = true;
+            System.out.println("\t\t\t\tVocê perdeu!!!");
+        } else if (this.arrInt[1][0].equals(this.lance) && this.arrInt[1][1].equals(this.lance) && this.arrInt[1][2].equals(this.lance)) {
+            this.para_programa = true;
+            System.out.println("\t\t\t\tVocê perdeu!!!");
+        } else if (this.arrInt[2][0].equals(this.lance) && this.arrInt[1][1].equals(this.lance) && this.arrInt[0][2].equals(this.lance)) {
+            this.para_programa = true;
+            System.out.println("\t\t\t\tVocê perdeu!!!");
+        }
+
+        return this.para_programa;
+    }
+
+    public boolean j_ganhou() {
+        if (this.arrInt[0][0].equals(this.palavra) && this.arrInt[1][1].equals(this.palavra) && this.arrInt[2][2].equals(this.palavra)) {
+            this.para_programa = true;
+            System.out.println("\t\t\t\tVocê ganhou!!");
+        } else if (this.arrInt[0][0].equals(this.palavra) && this.arrInt[1][0].equals(this.palavra) && this.arrInt[2][0].equals(this.palavra)) {
+            this.para_programa = true;
+            System.out.println("\t\t\t\tVocê ganhou!!");
+        } else if (this.arrInt[0][0].equals(this.palavra) && this.arrInt[0][1].equals(this.palavra) && this.arrInt[0][2].equals(this.palavra)) {
+            this.para_programa = true;
+            System.out.println("\t\t\t\tVocê ganhou!!");
+        } else if (this.arrInt[0][2].equals(this.palavra) && this.arrInt[1][2].equals(this.palavra) && this.arrInt[2][2].equals(this.palavra)) {
+            this.para_programa = true;
+            System.out.println("\t\t\t\tVocê ganhou!!");
+        } else if (this.arrInt[2][0].equals(this.palavra) && this.arrInt[2][1].equals(this.palavra) && this.arrInt[2][2].equals(this.palavra)) {
+            this.para_programa = true;
+            System.out.println("\t\t\t\tVocê ganhou!!");
+        } else if (this.arrInt[0][1].equals(this.palavra) && this.arrInt[1][1].equals(this.palavra) && this.arrInt[2][1].equals(this.palavra)) {
+            this.para_programa = true;
+            System.out.println("\t\t\t\tVocê ganhou!!");
+        } else if (this.arrInt[1][0].equals(this.palavra) && this.arrInt[1][1].equals(this.palavra) && this.arrInt[1][2].equals(this.palavra)) {
+            this.para_programa = true;
+            System.out.println("\t\t\t\tVocê ganhou!!");
+        } else if (this.arrInt[2][0].equals(this.palavra) && this.arrInt[1][1].equals(this.palavra) && this.arrInt[0][2].equals(this.palavra)) {
+            this.para_programa = true;
+            System.out.println("\t\t\t\tVocê ganhou!!");
+        }
+
+        return this.para_programa;
+    }
+
+    public boolean empatou() {
+        this.contador = 0;
+
+        for(int n = 0; n < 3; ++n) {
+            for(int g = 0; g < 3; ++g) {
+                if (this.arrInt[n][g].equals("x") || this.arrInt[n][g].equals("o") || this.arrInt[n][g].equals("X") || this.arrInt[n][g].equals("O")) {
+                    ++this.contador;
+                }
+            }
+        }
+
+        if (this.contador == 9) {
+            this.para_programa = true;
+            System.out.println("\t\t\t\tDeu velha!!");
+            System.out.println("\t\t\t\tO jogo terminou empatado!!");
+        }
+
+        return this.para_programa;
+    }
+}
