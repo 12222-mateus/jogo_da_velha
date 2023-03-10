@@ -1,0 +1,40 @@
+//
+// Source code recreated from a .class file by IntelliJ IDEA
+// (powered by FernFlower decompiler)
+//
+
+package jogo_velha;
+
+import java.util.Scanner;
+
+public class Jogador {
+    public Jogador() {
+    }
+
+    public int escolher_nivel(Tabuleiro tab) {
+        Scanner ler = new Scanner(System.in);
+        System.out.println("\t\t\t\tDigite o nível de dificuldade que você deseja jogar:");
+        System.out.println("\t\t\t\t1  -  nivel 1");
+        System.out.println("\t\t\t\t2  -  nivel 2");
+        System.out.println("\t\t\t\t3  -  nivel 3");
+        tab.nivel = ler.nextInt();
+        return tab.nivel;
+    }
+
+    public String x_ou_o(Tabuleiro tab) {
+        Scanner ler = new Scanner(System.in);
+        System.out.printf("\t\t\t\tVocê deseja jogar com x ou o ?\n");
+        tab.palavra = ler.next();
+        return tab.palavra;
+    }
+
+    public String jogar(Tabuleiro tab) {
+        Scanner escolher = new Scanner(System.in);
+        System.out.println("\t\t\t\tQual linha você deseja jogar?\n");
+        tab.linha = escolher.nextInt();
+        System.out.println("\t\t\t\tQual coluna você deseja jogar?\n");
+        tab.coluna = escolher.nextInt();
+        tab.arrInt[tab.linha][tab.coluna] = tab.palavra;
+        return tab.arrInt[tab.linha][tab.coluna];
+    }
+}
