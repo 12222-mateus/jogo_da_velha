@@ -1,0 +1,47 @@
+//
+// Source code recreated from a .class file by IntelliJ IDEA
+// (powered by FernFlower decompiler)
+//
+
+package jogo_velha;
+
+public class ComputadorB extends Computador {
+    public ComputadorB() {
+    }
+
+    public String jogar(Tabuleiro tab) {
+        if (tab.arrInt[2][0].equals("") && tab.arrInt[0][2].equals("") && tab.arrInt[2][2].equals("")) {
+            tab.arrInt[2][0] = tab.lance;
+        } else if (tab.arrInt[0][2].equals("") && tab.arrInt[2][2].equals("")) {
+            tab.arrInt[0][2] = tab.lance;
+        } else if (tab.arrInt[1][1].equals("")) {
+            tab.arrInt[1][1] = tab.lance;
+        } else if (tab.arrInt[2][2].equals("")) {
+            tab.arrInt[2][2] = tab.lance;
+        } else if (tab.arrInt[1][2].equals("")) {
+            tab.arrInt[1][2] = tab.lance;
+        } else if (tab.arrInt[2][1].equals("")) {
+            tab.arrInt[2][1] = tab.lance;
+        } else if (tab.arrInt[0][0].equals("") && tab.arrInt[2][2].equals("") && tab.arrInt[0][2].equals("")) {
+            tab.arrInt[0][0] = tab.lance;
+        } else if (tab.arrInt[0][2].equals("") && tab.arrInt[2][2].equals("")) {
+            tab.arrInt[2][2] = tab.lance;
+        } else if (tab.arrInt[0][2].equals("")) {
+            tab.arrInt[0][2] = tab.lance;
+        } else if (tab.arrInt[0][1].equals("")) {
+            tab.arrInt[0][1] = tab.lance;
+        } else if (tab.arrInt[1][2].equals("")) {
+            tab.arrInt[1][2] = tab.lance;
+        } else if (tab.arrInt[1][1].equals("")) {
+            tab.arrInt[1][1] = tab.lance;
+        } else if (tab.arrInt[1][0].equals("")) {
+            tab.arrInt[1][0] = tab.lance;
+        } else if (tab.arrInt[0][0].equals("")) {
+            tab.arrInt[0][0] = tab.lance;
+        } else if (tab.arrInt[1][2].equals("")) {
+            tab.arrInt[1][2] = tab.lance;
+        }
+
+        return this.c;
+    }
+}
