@@ -1,0 +1,18 @@
+package jogo_velha;
+
+public class Computador extends Jogador {
+    String c;
+
+    public Computador() {
+    }
+
+    public String x_ou_o(Tabuleiro tab) {
+        if (!tab.palavra.equals("x") && !tab.palavra.equals("X")) {
+            tab.lance = "x";
+        } else {
+            tab.lance = "o";
+        }
+
+        return this.c;
+    }
+}
